@@ -21,10 +21,10 @@ type ResultsPanelProps =
 export function ResultsPanel({ type, data }: ResultsPanelProps) {
   if (type === null || data === null) {
     return (
-      <Card>
+      <Card className="border-border/60">
         <CardHeader>
-          <CardTitle className="text-base">Results</CardTitle>
-          <CardDescription className="text-xs">
+          <CardTitle className="text-base font-semibold">Results</CardTitle>
+          <CardDescription className="text-sm">
             Run an analysis to see results here.
           </CardDescription>
         </CardHeader>
@@ -40,25 +40,25 @@ export function ResultsPanel({ type, data }: ResultsPanelProps) {
   if (type === "explain") {
     const d = data as ExplainResponse;
     return (
-      <Card>
+      <Card className="border border-border/60 border-l-4 border-l-primary animate-fade-in shadow-soft">
         <CardHeader className="pb-2">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <CardTitle className="text-base">Screenshot explanation</CardTitle>
+            <CardTitle className="text-base font-semibold">Screenshot explanation</CardTitle>
             <RiskBadge level={d.riskLevel} className="shrink-0" />
           </div>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm">
-          <section>
-            <h4 className="font-medium text-foreground mb-1">What this means</h4>
-            <p className="text-muted-foreground">{d.whatThisMeans}</p>
+        <CardContent className="space-y-5 text-sm">
+          <section className="rounded-xl bg-muted/30 p-4">
+            <h4 className="font-semibold text-foreground mb-1.5">What this means</h4>
+            <p className="text-muted-foreground leading-relaxed">{d.whatThisMeans}</p>
           </section>
-          <section>
-            <h4 className="font-medium text-foreground mb-1">Why you’re seeing it</h4>
-            <p className="text-muted-foreground">{d.whySeeingIt}</p>
+          <section className="rounded-xl bg-muted/30 p-4">
+            <h4 className="font-semibold text-foreground mb-1.5">Why you&apos;re seeing it</h4>
+            <p className="text-muted-foreground leading-relaxed">{d.whySeeingIt}</p>
           </section>
           {d.scamSignals.length > 0 && (
             <section>
-              <h4 className="font-medium text-foreground mb-1">Signals to watch</h4>
+              <h4 className="font-semibold text-foreground mb-1.5">Signals to watch</h4>
               <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
                 {d.scamSignals.map((s, i) => (
                   <li key={i}>{s}</li>
@@ -66,9 +66,9 @@ export function ResultsPanel({ type, data }: ResultsPanelProps) {
               </ul>
             </section>
           )}
-          <Alert>
+          <Alert className="border-primary/20 bg-primary/5">
             <AlertTitle>What to do next</AlertTitle>
-            <AlertDescription>{d.whatToDoNext}</AlertDescription>
+            <AlertDescription className="leading-relaxed">{d.whatToDoNext}</AlertDescription>
           </Alert>
         </CardContent>
       </Card>
@@ -79,16 +79,16 @@ export function ResultsPanel({ type, data }: ResultsPanelProps) {
   const scoreVariant =
     d.legitScore >= 70 ? "safe" : d.legitScore >= 40 ? "caution" : "danger";
   return (
-    <Card>
+    <Card className="border border-border/60 border-l-4 border-l-primary animate-fade-in shadow-soft">
       <CardHeader className="pb-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <CardTitle className="text-base">Is this legit?</CardTitle>
-          <Badge variant={scoreVariant} className="shrink-0">{d.legitScore}% legit</Badge>
+          <CardTitle className="text-base font-semibold">Is this legit?</CardTitle>
+          <Badge variant={scoreVariant} className="shrink-0 font-semibold">{d.legitScore}% legit</Badge>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4 text-sm">
+      <CardContent className="space-y-5 text-sm">
         <section>
-          <h4 className="font-medium text-foreground mb-1">Reasons for this score</h4>
+          <h4 className="font-semibold text-foreground mb-1.5">Reasons for this score</h4>
           <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
             {d.reasons.map((r, i) => (
               <li key={i}>{r}</li>
@@ -96,7 +96,7 @@ export function ResultsPanel({ type, data }: ResultsPanelProps) {
           </ul>
         </section>
         <section>
-          <h4 className="font-medium text-foreground mb-1">Next steps</h4>
+          <h4 className="font-semibold text-foreground mb-1.5">Next steps</h4>
           <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
             {d.nextSteps.map((s, i) => (
               <li key={i}>{s}</li>
@@ -105,7 +105,7 @@ export function ResultsPanel({ type, data }: ResultsPanelProps) {
         </section>
         {d.scamSignals.length > 0 && (
           <section>
-            <h4 className="font-medium text-foreground mb-1">Scam signals</h4>
+            <h4 className="font-semibold text-foreground mb-1.5">Scam signals</h4>
             <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
               {d.scamSignals.map((s, i) => (
                 <li key={i}>{s}</li>
@@ -115,7 +115,7 @@ export function ResultsPanel({ type, data }: ResultsPanelProps) {
         )}
         <Alert variant="warning">
           <AlertTitle>If you already clicked</AlertTitle>
-          <AlertDescription>{d.ifYouAlreadyClicked}</AlertDescription>
+          <AlertDescription className="leading-relaxed">{d.ifYouAlreadyClicked}</AlertDescription>
         </Alert>
       </CardContent>
     </Card>

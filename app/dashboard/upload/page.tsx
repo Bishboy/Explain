@@ -74,16 +74,16 @@ export default function UploadPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Upload Screenshot</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">Upload Screenshot</h1>
+        <p className="text-muted-foreground mt-2 text-[15px]">
           Upload a PNG or JPG and we’ll explain what it means in plain English.
         </p>
       </div>
 
-      <Card>
+      <Card className="border border-border/60 overflow-hidden">
         <CardHeader>
-          <CardTitle>Choose an image</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-lg font-semibold">Choose an image</CardTitle>
+          <CardDescription className="text-sm leading-relaxed">
             We’ll read the text from the image (mock OCR for now) and explain what it means, the risk level, and what to do next.
           </CardDescription>
         </CardHeader>

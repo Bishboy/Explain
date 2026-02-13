@@ -41,16 +41,16 @@ export default function LegitCheckPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Is This Legit?</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">Is This Legit?</h1>
+        <p className="text-muted-foreground mt-2 text-[15px]">
           Paste a message, email, or link and we’ll flag scam signals and suggest next steps.
         </p>
       </div>
 
-      <Card>
+      <Card className="border border-border/60 overflow-hidden">
         <CardHeader>
-          <CardTitle>Paste text or URL</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-lg font-semibold">Paste text or URL</CardTitle>
+          <CardDescription className="text-sm leading-relaxed">
             We’ll analyze it for urgency tricks, suspicious domains, and other scam signals and give you a legit score (0–100%) and clear next steps.
           </CardDescription>
         </CardHeader>
